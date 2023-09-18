@@ -1,25 +1,25 @@
-import styles from "./listeJeux.module.scss";
-import Bouton from '../bouton/bouton.jsx';
-import Titre from '../titre/titre.jsx';
-import BoutonListe from '../boutonListe/boutonListe.jsx'
+// import styles from "./listeJeux.module.scss";
+// import Bouton from '../bouton/bouton.jsx';
+// import Titre from '../titre/titre.jsx';
 
 
 
-function listeJeux (texte) {
 
-    return (
-        <>
-        <Titre>Les jeux les plus populaires</Titre>
-        <BoutonListe options={[
+// function listeJeux (texte) {
 
-            'Item 1',
-            'Item 2',
-            'Item 3',
-            'Item 4',
+//     return (
+//         <>
+//         <Titre>Les jeux les plus populaires</Titre>
+//         {/* <BoutonListe options={[
 
-        ]}></BoutonListe>
-        </>
-    )
-}
+//             'Item 1',
+//             'Item 2',
+//             'Item 3',
+//             'Item 4',
 
-export default listeJeux
+//         ]}></BoutonListe> */}
+//         </>
+//     )
+// }
+
+// export default listeJeux
