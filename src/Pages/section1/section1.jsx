@@ -1,6 +1,6 @@
 import styles from "./section1.module.scss";
 
-function bouton (texte) {
+function section1 (texte) {
 
     return (
         <>
@@ -11,4 +11,4 @@ function bouton (texte) {
     )
 }
 
-export default bouton
+export default section1
