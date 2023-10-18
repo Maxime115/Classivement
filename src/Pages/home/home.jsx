@@ -4,6 +4,7 @@ import Section1 from '../section1/section1.jsx';
 import Textbox from '../textbox/textbox.jsx'
 import styles from "./home.module.scss"
 import Todolist from "../todolist/todolist.jsx"
+import Formulaire from "../Formulaire/formulaire.jsx"
 
 
 function Home() {
@@ -32,8 +33,15 @@ function Home() {
     <br></br>
     <br></br>
     <Todolist/>
+    <br></br>
+    <br></br>
+    <br></br>
+    <Formulaire/>
     </div>
+    
     </>
+
+    
   )
 }
 

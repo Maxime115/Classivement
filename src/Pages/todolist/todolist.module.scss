@@ -6,5 +6,12 @@
     border-radius: 15px;
     font-size: 32px;
     font-weight:600;
+    transition:0.25s;
 
+
+
+    &:focus {
+        background-color: #a8a7ae;
+        color: #0f0f0f;
+    }
 }
