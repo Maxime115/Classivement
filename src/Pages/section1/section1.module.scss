@@ -1,14 +1,29 @@
 .sectionNinja {
-    background-image: url(../images/bgNinja.png); 
-    background-repeat: no-repeat;
-    background-position: center;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 65vh;
-    background-size: cover;
     font-size: 36px;
+    z-index: 1;
+    margin-bottom: 5vh;
+    width: 100%;
+}
+
+.sectionNinja:before {
+  content: "";
+  background-image: url(../images/bgNinja.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 }
  
  

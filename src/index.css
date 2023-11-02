@@ -11,3 +11,50 @@
 h1 {
     font-family: 'Mada';
 }
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+}
+
+select {
+    
+    background-color: transparent;
+    letter-spacing: 2px;
+    padding: 12px;
+    border: solid white;
+    transition:0.25s;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight:600;
+    text-transform:uppercase;
+    cursor: pointer;
+    font-family: 'Lato';
+    
+
+    &:hover,
+    &:focus { 
+        background-color: #a8a7ae;
+        color: #0f0f0f;
+    }
+}
+
+    option {
+        color: #0f0f0f;
+        
+}
+
+.espacement {
+    margin-bottom: 5vh;
+}
+
+.GrosEspacement {
+    margin-bottom: 10vh;
+}

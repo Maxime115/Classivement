@@ -1,0 +1,58 @@
+.ListeJeux {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+  
+    figure {
+        position: relative;
+        transition: transform 0.5s ease-in-out;
+        overflow: hidden;
+        border-radius: 15px;
+  
+        .jaquette {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease-in-out;
+        }
+  
+        &:hover {
+            .jaquette {
+                transform: scale(1.05);
+            }
+        }
+  
+        .jaquetteCaption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: 0.5s ease;
+            cursor: pointer;
+  
+            &:hover {
+                opacity: 1;
+            }
+        }
+    
+    }
+  }
+  
+  .paginate {
+    margin-left: 10px;
+    margin-right: 10px;
+    align-items: center;
+  }
+  

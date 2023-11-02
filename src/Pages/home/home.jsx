@@ -1,48 +1,31 @@
-import { useState } from 'react';
-import Navbar from '../navbar/navbar.jsx';
+import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import Section1 from '../section1/section1.jsx';
-import Textbox from '../textbox/textbox.jsx'
 import styles from "./home.module.scss"
-import Todolist from "../todolist/todolist.jsx"
 import Formulaire from "../Formulaire/formulaire.jsx"
-import Todo from "../Todo/Todo.jsx"
+import Galerie from "../gallerieHome/gallerieHome.jsx"
+import LastAchievement from "../lastAchievement/lastAchievement.jsx"
+
 
 
 function Home() {
 
-  const [count, setCount] = useState(0);
 
   return (
     <>
     <div class={styles.home}>
-    <Navbar/>
-    <Section1/>
-    <h1>Exercice 1</h1>
     
-     <h2>Compteur : {count}</h2>
-     <br></br>
-    <br></br>
-     <button onClick={() => setCount(count + 1)}>Incremente</button>
-     <button onClick={() => setCount(count - 1)}>Decremente</button>
-     <br></br>
-     <br></br>
-     <h2>*********************************</h2>
-     
-     <h1>Exercice 2</h1>
-     
-    <Textbox/>
-    <br></br>
-    <br></br>
-    <Todolist/>
-    <br></br>
-    <br></br>
-    <br></br>
-    <Formulaire/>
-    <br></br>
-    <br></br>
-    <Todo/>
+     <Section1/>
+    <div className={styles.sectionHome}>
+    <Galerie/>
+    <Link to="ListeJeux"><button className="GrosEspacement">Voir la liste</button></Link>
+    <h2 className="espacement">Achievements les plus récents</h2>
+    <LastAchievement/>
+    <h1>TEST</h1>
+    
+    
     </div>
-    
+    </div>
     
     
     </>

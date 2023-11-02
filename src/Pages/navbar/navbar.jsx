@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 import styles from "./navbar.module.scss";
 import Bouton from '../bouton/bouton.jsx';
+import Items from "../items/items.jsx";
 
 
 function Navbar() {
-
+  
   
   const [authentif, setAuthentif] = useState('Connexion');
 
@@ -16,15 +17,15 @@ function Navbar() {
 
   return (
     <header>
-      <a href="#" className={styles.logo}>
-        CLASSIVEMENT
-      </a>
+      
+        <Link to="/" className= {styles.logo}>CLASSIVEMENT</Link>
+      
       <nav>
-        <a href="#">Accueil</a>
-        <a href="#Apropos">A propos</a>
-        <a href="#Jeux">Liste de jeux</a>
-        <a href="#Achievement">Créer un achievement</a>
-        <a href="#Contact">Contact</a>
+       <Link to="/">Accueil</Link>
+       <Link to="/">A propos</Link>
+       <Link to="ListeJeux">Liste de jeux</Link>
+       <Link to="/">Créer un achievement</Link>
+       <Link to="/">Contact</Link>
       </nav>
       <button onClick={handleClick}>{authentif}</button>
     </header>
