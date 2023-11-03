@@ -1,0 +1,19 @@
+.searchbar {
+    background-color: transparent;
+    letter-spacing: 1px;
+    padding: 12px;
+    border: solid white;
+    transition:0.25s;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight:600;
+    font-family: 'Lato';
+    margin-top: 10vh;
+    width: 33%;
+
+    &:hover {
+        background-color: #a8a7ae;
+        color: #0f0f0f;
+        
+    }
+}

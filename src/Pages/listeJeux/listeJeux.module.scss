@@ -1,3 +1,5 @@
+
+
 .ListeJeux {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -6,6 +8,9 @@
     justify-content: center;
     align-items: center;
     height: auto;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 5vh;
   
     figure {
         position: relative;

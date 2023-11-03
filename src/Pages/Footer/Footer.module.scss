@@ -1,0 +1,43 @@
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 50px ;
+
+  
+    .left {
+   
+      ul {
+        list-style: none;
+ 
+        li {
+          margin: 10px 0;
+          a {
+            text-decoration: none;
+    
+            &:hover {
+                text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    .right {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+      }
+   
+}
+
+footer i {
+
+    transition: 0.25s;
+
+
+    &:hover {
+        color: #6ec1e4;
+    }
+
+}

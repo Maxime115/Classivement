@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from "./ListeJeux.module.scss"
 import BoutonFilter from "../boutonFilter/boutonFilter.jsx"
+import Searchbar from '../Searchbar/Searchbar';
 import Zelda64 from '../images/jeux/Zelda64.webp';
 import Goldeneye from '../images/jeux/GoldenEye007.jpg';
 import NinjaGaiden from '../images/jeux/NinjaGaiden.jpg';
@@ -11,6 +12,7 @@ import GranTurismo from '../images/jeux/GranTurismo.jpg';
 import SF2 from '../images/jeux/SF2.jpg';
 import Mario from '../images/jeux/Mario.webp';
 import GTA2 from '../images/jeux/GTA2.jpg';
+
 
 
 
@@ -33,6 +35,12 @@ const ListeJeux = () => {
   const [filter, setFilter] = useState('all');
   const [filteredImages, setFilteredImages] = useState([]);
   const [currentPage, setCurrentPage] = useState(1)
+  const [searchText, setSearchText] = useState('');
+
+
+  const handleSearchChange = (text) => {
+    setSearchText(text);
+  };
   
 
   const changeFilter = (newFilter) => {
@@ -49,11 +57,19 @@ const ListeJeux = () => {
         imagesFiltered = imagesData.filter((image) => image.plateforme === filter);
     }
 
+    if (searchText) {
+      imagesFiltered = imagesFiltered.filter(
+        (image) =>
+          image.nom.toLowerCase().includes(searchText.toLowerCase()) ||
+          image.plateforme.toLowerCase().includes(searchText.toLowerCase())
+      );
+    }
+
      imagesFiltered.sort((a, b) => b.Popularite - a.Popularite);
    
-    setFilteredImages(imagesFiltered);
+     setFilteredImages(imagesFiltered);
 
-  }, [filter]);
+    }, [filter, searchText]);
 
   const indexLastImage = currentPage * imagesPage;
   const indexFirstImage = indexLastImage - imagesPage;
@@ -65,7 +81,8 @@ const ListeJeux = () => {
         
   return (
     <>
-    <div>
+    <div className={styles.sectionListeJeux}>
+      <Searchbar onSearch={handleSearchChange} />
       <BoutonFilter onFilterChange={changeFilter}/>
       <div className={styles.ListeJeux}>
         {currentImages.map((img) => (

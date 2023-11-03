@@ -39,6 +39,7 @@ function LastAchievement() {
     const lastThreeAchievements = reversedAchievements.slice(0, 3);
 
     return (
+      <div className='TresGrosEspacement'>
         <div className={styles.achievementContainer}>
           {lastThreeAchievements.map((achievement) => (
             <div key={achievement.id} className={styles.achievement}>
@@ -48,11 +49,13 @@ function LastAchievement() {
               </div>
               <div className={styles.info}>
                 <h3 className={styles.titre}>{achievement.nom}</h3>
+                <br></br>
                 <p>{achievement.description}</p>
               </div>
-              <button className={styles.enSavoir}>En savoir plus</button>
+              <button className={styles.enSavoir}>En savoir +</button>
             </div>
           ))}
+        </div>
         </div>
       );
     }

@@ -8,6 +8,7 @@ function App() {
     {
       path: "/",
       element: <Layout/>,
+      errorElement: <Error/>,
 
        children:[
         // Redirection vers le composant Inscription (Page inscription) avec le "/inscription" par exemple si notre site est Facebook : facebook.com/inscription
@@ -15,6 +16,13 @@ function App() {
           path: "/ListeJeux",
           element: <ListeJeux/>,
           errorElement: <Error/>,
+          
+          // children:[
+          //   path: "/TEST",
+          // element: <TEST/>,
+          // errorElement: <Error/>,
+
+          // ]
         },
       ]
     }
