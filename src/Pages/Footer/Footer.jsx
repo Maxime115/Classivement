@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.scss";
 import Items from "../items/items.jsx";
+import Logo from '../images/Logo.png';
 
 
 function Footer() {
@@ -22,7 +23,7 @@ function Footer() {
             <Link to="/ListeJeux">Liste de jeux</Link>
           </li>
           <li>
-            <Link to="/">Créer un achievement</Link>
+            <Link to="/Achievement">Créer un achievement</Link>
           </li>
           <li>
             <Link to="/">Contact</Link>
@@ -38,6 +39,8 @@ function Footer() {
       <div className={styles.center}>
         {/* Partie Copyright au centre */}
         <p>&copy; {new Date().getFullYear()} CLASSIVEMENT | Tout droit réservé</p>
+        <Link to="/" className= {styles.logo}><img src={Logo} className={styles.logo}/></Link>
+
       </div>
       <div className={styles.right}>
         {/* Icônes YouTube et Discord à droite */}

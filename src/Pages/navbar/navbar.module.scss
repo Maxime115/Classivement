@@ -8,9 +8,15 @@ header {
 
 
     .logo {
-        color: #a8a7ae;
-        font-size: 42px;
-        text-decoration: none;
+        height: 75px;
+        transition: 0.2s;
+
+        &:hover {
+            opacity: 80%;
+            
+        }
+
+
     }
 
 

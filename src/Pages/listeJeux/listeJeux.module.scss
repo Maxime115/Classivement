@@ -1,4 +1,7 @@
-
+.sectionListeJeux {
+    width: 70%;
+    margin: auto;
+} 
 
 .ListeJeux {
     display: grid;
@@ -8,56 +11,103 @@
     justify-content: center;
     align-items: center;
     height: auto;
-    width: 70%;
+
     margin: auto;
-    margin-bottom: 5vh;
   
     figure {
-        position: relative;
-        transition: transform 0.5s ease-in-out;
-        overflow: hidden;
-        border-radius: 15px;
+      position: relative;
+      transition: transform 0.5s ease-in-out;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   
-        .jaquette {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s ease-in-out;
+      .jaquette {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.7s ease-in-out;
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0), 0 0px 10px rgba(0, 0, 0, 0.5);
+  
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(45deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.5) 75%, transparent 75%, transparent 100%);
+          transform: translateX(-100%);
+          transition: all 0.7s ease-in-out;
         }
   
         &:hover {
-            .jaquette {
-                transform: scale(1.05);
-            }
+          transform: scale(1.15);
+        }
+      }
+  
+      &:hover {
+        .jaquette {
+          transform: scale(1.1);
         }
   
-        .jaquetteCaption {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: 0.5s ease;
-            cursor: pointer;
-  
-            &:hover {
-                opacity: 1;
-            }
+        .jaquette:before {
+          transform: translateX(100%);
         }
-    
+
+        
+      }
+  
+      .jaquetteCaption {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: 0.7s ease;
+        cursor: pointer;
+  
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
   }
-  
-  .paginate {
-    margin-left: 10px;
-    margin-right: 10px;
-    align-items: center;
+
+   .titrePage {
+    margin-top: 5vh;
+    
+ }
+
+ .paginate {
+  width: 40px;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
   }
-  
+
+  &.active {
+    background-color: #a8a7ae;
+    color: #0f0f0f;
+    font-weight: bold;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: #a8a7ae;
+  }
+}
+
+
+ 

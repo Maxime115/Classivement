@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from "./gallerieHome.module.scss"
-import BoutonFilter from "../boutonFilter/boutonFilter.jsx"
+
 import Zelda64 from '../images/jeux/Zelda64.webp';
 import Goldeneye from '../images/jeux/GoldenEye007.jpg';
 import NinjaGaiden from '../images/jeux/NinjaGaiden.jpg';
@@ -27,19 +27,35 @@ const imagesData = [
     { id: 10, alt: 'GTA2', nom: 'Grand Theft Auto 2', annee: '1999', plateforme: 'PS1', src: GTA2, Popularite : 70 }
 ];
 
+const platformNames = {
+  'NES': 'NES',
+  'SNES': 'SNES',
+  'GB': 'GameBoy',
+  'N64': 'Nintendo 64',
+  'PS1': 'Playstation',
+};
+
+const plateforme = [{value: 'all', label: 'Toutes les plateformes'}, 
+    {value: 'NES', label: 'NES'},
+    {value: 'SNES', label: 'SNES'},
+    {value: 'GB', label: 'Gameboy'},
+    {value: 'N64', label: 'Nintendo 64'},
+    {value: 'PS1', label: 'Playstation'}, 
+  ];
+
+
 const GallerieHome = () => {
 
   const imagesPage = 6;
   const [filter, setFilter] = useState('all');
   const [filteredImages, setFilteredImages] = useState([]);
 
-  const changeFilter = (newFilter) => {
-    setFilter(newFilter);
+  const handleFilterChange = (event) => {
+    setFilter(event.target.value);
   };
 
   useEffect(() => {
     let imagesFiltered;
-
     if (filter === 'all') {
       imagesFiltered = [...imagesData];
     } else {
@@ -57,7 +73,14 @@ const GallerieHome = () => {
   return (
     <div>
       <h2 className="espacement">Les jeux les plus populaires</h2>
-      <BoutonFilter onFilterChange={changeFilter} />
+      <select className={styles.boutonFiltre} 
+    onChange={handleFilterChange}>
+      {plateforme.map(({ value, label }, index) => (
+        <option key={index} value={value}>
+          {label || value}
+        </option>
+      ))}
+    </select>
       <div className={styles.ListeJeux}>
         {filteredImages.map((img) => (
           <figure key={img.id} className={`${styles.jaquetteContainer}`}>
@@ -65,7 +88,7 @@ const GallerieHome = () => {
             <figcaption className={styles.jaquetteCaption}>
               <h2>{img.nom}</h2>
               <br></br>
-              <h3>{img.plateforme}</h3>
+              <h3>{platformNames[img.plateforme]}</h3>
               <br></br>
               <h3>{img.annee}</h3>
             </figcaption>

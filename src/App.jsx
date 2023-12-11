@@ -2,6 +2,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './App.css'
 import Layout from './Layout/Layout'
 import ListeJeux from './Pages/ListeJeux/ListeJeux'
+import Apropos from './Pages/AboutMe/AboutMe'
+import Register from './Pages/Register/Register'
+import Login from './Pages/Register/Login'
+import Error from './Pages/ErrorPage/ErrorPage'
+import Achievement from './Pages/CreationAchievement/CreationAchievement'
 
 function App() {
   const router = createBrowserRouter([
@@ -16,6 +21,39 @@ function App() {
           path: "/ListeJeux",
           element: <ListeJeux/>,
           errorElement: <Error/>,
+        },
+
+    
+
+        {
+
+          path: "/Register",
+          element: <Register/>,
+          errorElement: <Error/>,
+        },
+
+        {
+
+          path: "/Login",
+          element: <Login/>,
+          errorElement: <Error/>,
+        },
+
+        {
+
+          path: "/Achievement",
+          element: <Achievement/>,
+          errorElement: <Error/>,
+        },
+
+
+        {
+
+          path: "/Apropos",
+          element: <Apropos/>,
+          errorElement: <Error/>,
+
+        }
           
           // children:[
           //   path: "/TEST",
@@ -23,7 +61,6 @@ function App() {
           // errorElement: <Error/>,
 
           // ]
-        },
       ]
     }
     

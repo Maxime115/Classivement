@@ -1,0 +1,83 @@
+.titrePage {
+  margin-top: 10px;
+  margin-bottom: 1rem;
+}
+
+.Achievement {
+  width: 70%;
+  margin: auto;
+}
+
+.Formulaire {
+  width: 70%; // Adjusted to 70%
+  border: solid white;
+  border-radius: 15px;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  background: transparent; // Added transparent background
+
+  display: flex; // Added flex to enable splitting in two
+  justify-content: space-between; // To create space between left and right sections
+  padding: 20px; // Added padding for better spacing
+}
+
+.iconInput {
+  width: 30%; // Adjusted to 30%
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  label {
+    border: 3px dashed white; // Dotted border for the square
+    border-radius: 15px;
+    width: 100px; // Adjusted to your desired size
+    height: 100px; // Adjusted to your desired size
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // Ensures the image covers the entire square
+    }
+  }
+
+  input {
+    display: none;
+  }
+}
+
+.formulaireAchievement {
+  width: 80%;
+  margin-top: 20px;
+}
+
+.inputGrid {
+  width: 70%; // Adjusted to 70%
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  justify-content: space-between; // To create space between inputs
+}
+
+
+.texterror {
+  color: red;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.submit {
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+button {
+  margin-bottom: 20px;
+}
+

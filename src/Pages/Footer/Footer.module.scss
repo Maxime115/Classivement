@@ -41,3 +41,16 @@ footer i {
     }
 
 }
+
+.logo {
+  height: 75px;
+  transition: 0.2s;
+  margin-right: auto;
+
+  &:hover {
+      opacity: 80%;
+      
+  }
+
+
+}
