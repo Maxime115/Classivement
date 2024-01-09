@@ -16,8 +16,8 @@ function section1 (texte) {
                </p>
                <br></br>
                <div>
-               <Link to="/"><button className={styles.inscriptionConnexion}>S'inscrire</button></Link>
-               <Link to="/"><button className={styles.inscriptionConnexion}>Se connecter</button></Link>
+               <Link to="/Register"><button className={styles.inscriptionConnexion}>S'inscrire</button></Link>
+               <Link to="/Login"><button className={styles.inscriptionConnexion}>Se connecter</button></Link>
                </div>
 
             </div>

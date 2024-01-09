@@ -3,8 +3,37 @@ import styles from "./AboutMe.module.scss"
 import Celebi from '../images/Achievements/Celebi.png';
 import Inspiration from '../images/inspiration.png';
 import React, { useState, useEffect } from "react";
+import Zelda64 from '../images/jeux/Zelda64.webp';
+import Goldeneye from '../images/jeux/GoldenEye007.jpg';
+import PerfectDark from '../images/jeux/PerfectDark.png';
+
 
 function AboutMe() {
+  
+
+  const imagesData = [
+    { id: 1, alt: 'Zelda_OOT', nom: 'Zelda Ocarina of Time', annee: '1998', plateforme: 'N64', src: Zelda64, Popularite : 99},
+    { id: 2, alt: 'Perfect_Dark', nom: 'Perfect Dark', annee: '2000', plateforme: 'N64', src: PerfectDark, Popularite : 97 },
+    { id: 3, alt: 'Goldeneye', nom: 'GoldenEye 007', annee: '1997', plateforme: 'N64', src: Goldeneye, Popularite : 96},
+    
+];
+
+
+const platformNames = {
+
+  'N64': 'Nintendo 64',
+
+};
+
+const [filteredImages, setFilteredImages] = useState([]);
+
+useEffect(() => {
+  // Tri des jeux par ID
+  const sortedImages = imagesData.sort((a, b) => a.id - b.id);
+  setFilteredImages(sortedImages);
+}, []);
+
+  
 
 
 
@@ -23,7 +52,7 @@ function AboutMe() {
         Peut-être que tu le sais déjà, toi la personne qui lit ce paragraphe de texte, mais en effet, je suis le développeur de <b>CLASSIVEMENT</b> que j'ai fait avec passion. 
         <br></br>
         <br></br>
-        Si tu veux en savoir plus sur moi et ma vie professionnelle, je t'invite a te rendre sur <a href="https://maxime-leclercq.fr/">mon site portfolio</a>.
+        Si tu veux en savoir plus sur moi et ma vie professionnelle, je t'invite a te rendre sur <b><a href="https://maxime-leclercq.fr/">mon site portfolio</a></b>.
         Tu pourras y retrouver mes créations et mes projets web 
         <br></br>
         <br></br>
@@ -48,14 +77,26 @@ function AboutMe() {
         <br></br>
         <br></br>
 
-        <center><Link to="/"><button className={`${styles.create} ${styles.customButton}`}>Créer mon achievement</button></Link></center>
-
+        <center><Link to="/Achievement"><button className={`${styles.create} ${styles.customButton}`}>Créer mon achievement</button></Link></center>
         </p>
-        
-        
-        
-    <img src={Celebi} className={styles.gif}/>
+        <img src={Celebi} className={`${styles.gif} ${styles.aura}`} />
+
     </div>
+    <h2 className={styles.titrePage}>Mes 3 jeux rétro préféré </h2>
+    <div className={styles.ListeJeux}>
+        {filteredImages.map((img) => (
+          <figure key={img.id} className={`${styles.jaquetteContainer}`}>
+            <img className={`${styles.jaquette} ${styles.imageCommonStyles}`} src={img.src} alt={img.alt} />
+            <figcaption className={styles.jaquetteCaption}>
+              <h2>{img.nom}</h2>
+              <br></br>
+              <h3>{platformNames[img.plateforme]}</h3>
+              <br></br>
+              <h3>{img.annee}</h3>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
     </div>
     
     

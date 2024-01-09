@@ -3,8 +3,9 @@ import './App.css'
 import Layout from './Layout/Layout'
 import ListeJeux from './Pages/ListeJeux/ListeJeux'
 import Apropos from './Pages/AboutMe/AboutMe'
-import Register from './Pages/Register/Register'
-import Login from './Pages/Register/Login'
+import Register from './Pages/Forms/Register'
+import Login from './Pages/Forms/Login'
+import Contact from './Pages/Forms/Contact'
 import Error from './Pages/ErrorPage/ErrorPage'
 import Achievement from './Pages/CreationAchievement/CreationAchievement'
 
@@ -51,6 +52,14 @@ function App() {
 
           path: "/Apropos",
           element: <Apropos/>,
+          errorElement: <Error/>,
+
+        },
+
+        {
+
+          path: "/Contact",
+          element: <Contact/>,
           errorElement: <Error/>,
 
         }

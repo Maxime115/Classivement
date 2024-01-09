@@ -11,6 +11,7 @@ import GranTurismo from '../images/jeux/GranTurismo.jpg';
 import SF2 from '../images/jeux/SF2.jpg';
 import Mario from '../images/jeux/Mario.webp';
 import GTA2 from '../images/jeux/GTA2.jpg';
+import PerfectDark from '../images/jeux/PerfectDark.png'
 
 
 
@@ -24,7 +25,8 @@ const imagesData = [
     { id: 7, alt: 'Gran_Turismo', nom: 'Gran Turismo', annee: '1998', plateforme: 'PS1', src: GranTurismo, Popularite : 96 },
     { id: 8, alt: 'Street_Fighter2', nom: 'Street Fighter 2', annee: '1992', plateforme: 'SNES', src: SF2, Popularite : 85  },
     { id: 9, alt: 'Super Mario Bros', nom: 'Super Mario Bros', annee: '1985', plateforme: 'NES', src: Mario, Popularite : 84 },
-    { id: 10, alt: 'GTA2', nom: 'Grand Theft Auto 2', annee: '1999', plateforme: 'PS1', src: GTA2, Popularite : 70 }
+    { id: 10, alt: 'GTA2', nom: 'Grand Theft Auto 2', annee: '1999', plateforme: 'PS1', src: GTA2, Popularite : 70 },
+    { id: 11, alt: 'Perfect_Dark', nom: 'Perfect Dark', annee: '2000', plateforme: 'N64', src: PerfectDark, Popularite : 97 }
 ];
 
 const platformNames = {

@@ -52,8 +52,10 @@
 }
 
 .formulaireAchievement {
-  width: 80%;
+  width: 70%;
   margin-top: 20px;
+  resize: vertical;
+  
 }
 
 .inputGrid {
@@ -75,6 +77,7 @@
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
+  width: 250px;
 }
 
 button {

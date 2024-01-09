@@ -17,7 +17,7 @@ function Footer() {
             <Link to="/">Accueil</Link>
           </li>
           <li>
-            <Link to="/">À propos</Link>
+            <Link to="/Apropos">À propos</Link>
           </li>
           <li>
             <Link to="/ListeJeux">Liste de jeux</Link>
@@ -26,7 +26,7 @@ function Footer() {
             <Link to="/Achievement">Créer un achievement</Link>
           </li>
           <li>
-            <Link to="/">Contact</Link>
+            <Link to="/Contact">Contact</Link>
           </li>
           <li>
             <Link to="/">Mentions légales</Link>
@@ -39,7 +39,7 @@ function Footer() {
       <div className={styles.center}>
         {/* Partie Copyright au centre */}
         <p>&copy; {new Date().getFullYear()} CLASSIVEMENT | Tout droit réservé</p>
-        <Link to="/" className= {styles.logo}><img src={Logo} className={styles.logo}/></Link>
+        {/* <Link to="/" className= {styles.logo}><img src={Logo} className={styles.logo}/></Link> */}
 
       </div>
       <div className={styles.right}>

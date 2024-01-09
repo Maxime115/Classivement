@@ -1,56 +1,47 @@
 import { useState, useEffect } from 'react';
 import styles from "./lastAchievement.module.scss"
-import Celebi from '../images/Achievements/Celebi.png';
-import Baiken from '../images/Achievements/Baiken.png';
-import Boris from '../images/Achievements/Boris.png';
 
-const Achievements = [
-    { id: 1, 
-    alt: 'Celebi_Shiny', 
-    nom: 'On ne fuit pas son destin',
-    description: "Capturer un Celebi chromatique. 1/8192 d'en croiser un lors de la rencontre de Celebi",
-    jeu: 'Pokémon Cristal', 
-    src: Celebi
-    },
-
-    { id: 2, 
-        alt: 'Baiken', 
-        nom: 'Mirror of the world',
-        description: "Terminer le mode Arcade avec Sol Badguy ou Ky Kiske sans utiliser de Continue et vaincre Baiken",
-        jeu: 'Guilty Gear', 
-        src: Baiken
-    },
-
-    { id: 3, 
-        alt: 'Invincible', 
-        nom: 'Je suis INVINCIBLE',
-        description: "Terminer Facility en 2 minutes et 5 secondes en 00 Agent",
-        jeu: 'GoldenEye 007', 
-        src: Boris
-    }
-
-];
 
 
 function LastAchievement() {
 
-    const reversedAchievements = [...Achievements].reverse();
+  const [achievementList, setachievementList] = useState([{Nom_Achievement : ""}])
 
-    const lastThreeAchievements = reversedAchievements.slice(0, 3);
+  useEffect( () => {
+    async function getAchievement(){
+        try{
+            const response = await fetch("http://localhost:8000/getAchievement");
+            if (response.ok){
+                const achievements = await response.json();
+                achievements.sort((a, b) => b.id_Achievement - a.id_Achievement);
+                const latestThreeAchievements = achievements.slice(0, 3);
+                console.log(latestThreeAchievements);
+                setachievementList(latestThreeAchievements)
+            } else{
+                console.log("Il y a eu une erreur");
+            }
+        } 
+        catch (error){
+            console.log(error);
+        }
+    }
+    getAchievement();
+}, [])
+
 
     return (
       <div className='TresGrosEspacement'>
         <div className={styles.achievementContainer}>
-          {lastThreeAchievements.map((achievement) => (
-            <div key={achievement.id} className={styles.achievement}>
+          {achievementList.map((achievements) => (
+            <div key={achievements.id_Achievement} className={styles.achievement}>
               <div>
-                <img className={styles.icone} src={achievement.src} alt={achievement.alt} />
-                <h4>Jeu :  {achievement.jeu}</h4>
+                <img className={styles.icone} src={`http://localhost:8000/${achievements.icon}`}  alt= {achievements.title} />
+                <h4>Jeu :  {achievements.game}</h4>
               </div>
               <div className={styles.info}>
-                <h3 className={styles.titre}>{achievement.nom}</h3>
+                <h3 className={styles.titre}>{achievements.title}</h3>
                 <br></br>
-                <p>{achievement.description}</p>
+                <p>{achievements.description}</p>
               </div>
               <button className={styles.enSavoir}>En savoir +</button>
             </div>

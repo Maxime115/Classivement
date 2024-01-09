@@ -26,7 +26,7 @@ function Navbar() {
        <Link to="/Apropos">A propos</Link>
        <Link to="ListeJeux">Liste de jeux</Link>
        <Link to="/Achievement">Créer un achievement</Link>
-       <Link to="/">Contact</Link>
+       <Link to="/Contact">Contact</Link>
       </nav>
       <Link to="Register"><button>Inscription</button></Link>
       <Link to="Login"><button>Connexion</button></Link>

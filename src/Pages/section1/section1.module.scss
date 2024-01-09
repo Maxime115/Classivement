@@ -1,7 +1,7 @@
 .sectionNinja {
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     min-height: 65vh;
@@ -9,6 +9,7 @@
     z-index: 1;
     margin-bottom: 5vh;
     width: 100%;
+    gap: 10px;
 }
 
 .sectionNinja:before {
@@ -24,6 +25,22 @@
   right: 0;
   bottom: 0;
   z-index: -1;
+}
+
+.sectionNinja .logo {
+
+  display: flex;
+
+  height: 70px;
+  transition: 0.2s;
+  padding: 50;
+
+  &:hover {
+      opacity: 80%;
+      
+  }
+
+
 }
  
  

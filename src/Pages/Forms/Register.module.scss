@@ -1,0 +1,105 @@
+.formulaire a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.titrePage {
+    margin-top: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  .formulaire {
+    width: 70%;
+    margin: auto;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  
+    label {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 20px;
+        
+        
+    }
+  
+    input {
+        background-color: transparent;
+        letter-spacing: 1px;
+        padding: 12px;
+        border: solid white;
+        transition: background-color 0.25s, color 0.25s;
+        border-radius: 15px;
+        font-size: 18px;
+        font-weight: 600;
+        
+        font-family: 'Lato';
+        width: 10em;
+        margin: auto;
+        width: 50%;
+    
+        &:hover {
+            background-color: #a8a7ae;
+       
+            color: #0f0f0f;
+        
+            
+            
+        }
+    }
+  
+    .texterror {
+      color: red;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+  
+    .textgood {
+      color: green;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .submit {
+        margin-top: 20px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .checkbox {
+        height: 16px;
+    }
+
+
+    textarea {
+
+      background-color: transparent;
+        letter-spacing: 1px;
+        padding: 12px;
+        border: solid white;
+        transition: background-color 0.25s, color 0.25s;
+        border-radius: 15px;
+        font-size: 18px;
+        font-weight: 600;
+        
+        font-family: 'Lato';
+        width: 10em;
+        margin: auto;
+        width: 50%;
+    
+        &:hover {
+            background-color: #a8a7ae;
+       
+            color: #0f0f0f;
+
+    }
+  
+  }
+
+  }
+  
