@@ -18,7 +18,7 @@ export default function Register({ changeView }) {
       .string()
       .required("Le champ est obligatoire")
       .min(2, "Le champ doit comporter 2 caractères")
-      .max(12, "Le champ ne doit pas contenir plus de 12 caractères"),
+      .max(25, "Le champ ne doit pas contenir plus de 25 caractères"),
     email: yup
       .string()
       .email("Votre email n'est pas valide")

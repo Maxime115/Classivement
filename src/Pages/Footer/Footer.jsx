@@ -23,9 +23,6 @@ function Footer() {
             <Link to="/ListeJeux">Liste de jeux</Link>
           </li>
           <li>
-            <Link to="/Achievement">Créer un achievement</Link>
-          </li>
-          <li>
             <Link to="/Contact">Contact</Link>
           </li>
           <li>

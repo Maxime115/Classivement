@@ -1,21 +1,43 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useRef, useState } from "react";
+import { useRef, useState, useContext, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "./CreationAchievement.module.scss";
 import { addAchievement } from "../../apis/users";
+import { useParams } from "react-router-dom";
+
 
 
 export default function Achievement() {
-
   const [feedback, setFeedback] = useState("");
   const [feedbackGood, setFeedbackGood] = useState("");
   const [icon, setIcon] = useState("");
   const navigate = useNavigate();
   const iconRef = useRef();
+  const { userId } = useParams();
+  const [games, setGames] = useState([]);
+  console.log("userId dans CreationAchievement:", userId);
 
+  useEffect(() => {
+    const getGames = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/getGames");
+        if (response.ok) {
+          const jeuData = await response.json();
+          setGames(jeuData);
+        } else {
+          console.log("Il y a eu une erreur");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    getGames(); // Call the function inside useEffect
+  }, []);
 
+  
 
   const handleIconChange = (event) => {
     setValue('icon', event.target.files[0]);
@@ -23,23 +45,10 @@ export default function Achievement() {
   };
 
   const yupSchema = yup.object({
-
-    title: yup
-      .string()
-      .required("Le champ est obligatoire"),
-
-    description: yup
-      .string()
-      .required("Le champ est obligatoire"),
-
-    game: yup
-      .string()
-      .required("Sélectionner un jeu"),
-
-    icon: yup
-      .mixed()
-      .required("L'icone est obligatoire"),
-
+    title: yup.string().required("Le champ est obligatoire"),
+    description: yup.string().required("Le champ est obligatoire"),
+    game: yup.string().required("Sélectionner un jeu"),
+    icon: yup.mixed().required("L'icone est obligatoire"),
   });
 
   const defaultValues = {
@@ -54,6 +63,7 @@ export default function Achievement() {
     handleSubmit,
     getValues,
     setValue,
+    reset, // Add reset function to clear the form after submission
     formState: { errors },
   } = useForm({
     defaultValues,
@@ -62,7 +72,6 @@ export default function Achievement() {
   });
 
   const onSubmit = async (data) => {
-
     setFeedback("");
     const values = getValues();
     const formData = new FormData();
@@ -70,13 +79,11 @@ export default function Achievement() {
     formData.append('description', data.description);
     formData.append('game', data.game);
     formData.append('icon', data.icon);
-    
-    console.log('formData: ', data)
-    console.log('Référence de l\'icône sélectionnée :', data.icon);
+    formData.append('userId', userId); // Pass the username as userId
 
 
-  try {
-    const response = await addAchievement(formData);
+    try {
+      const response = await addAchievement(formData);
       if (response.message) {
         setFeedback(response.message);
       } else {
@@ -91,6 +98,9 @@ export default function Achievement() {
     }
   }
 
+
+
+  
   
 
 
@@ -115,8 +125,24 @@ export default function Achievement() {
             <textarea className={styles.formulaireAchievement} {...register("description")} type="text" id="description" placeholder="Description" />
             {errors?.description && <p className={styles.texterror}>{errors.description.message}</p>}
 
-            <input className={styles.formulaireAchievement} {...register("game")} type="text" id="game" placeholder="Sélectionner le jeu pour cet achievement" />
-            {errors?.game && <p className={styles.texterror}>{errors.game.message}</p>}
+
+            {games && games.length > 0 ? (
+              <select className={styles.selectGame} {...register("game")}>
+                <option value="">Sélectionner un jeu</option>
+                {games
+                  .slice()
+                  .sort((a, b) => a.nom_jeu.localeCompare(b.nom_jeu)) // Sort the games alphabetically
+                  .map((game) => (
+                    <option key={game.jeu_id} value={game.jeu_id}>
+                      {game.nom_jeu}
+                    </option>
+                  ))}
+              </select>
+            ) : (
+              <p>Erreur</p>
+            )}
+        {errors?.game && <p className={styles.texterror}>{errors.game.message}</p>}
+
           </div>
         </div>
 

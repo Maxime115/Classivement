@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 import './App.css'
 import Layout from './Layout/Layout'
 import ListeJeux from './Pages/ListeJeux/ListeJeux'
@@ -8,8 +8,12 @@ import Login from './Pages/Forms/Login'
 import Contact from './Pages/Forms/Contact'
 import Error from './Pages/ErrorPage/ErrorPage'
 import Achievement from './Pages/CreationAchievement/CreationAchievement'
+import JeuDetail from "./Pages/jeuDetail/jeuDetail";
+import Profile from './Pages/Profile/Profile'
+
 
 function App() {
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -24,7 +28,13 @@ function App() {
           errorElement: <Error/>,
         },
 
-    
+        {
+          path: "/jeuDetail/:gameId",
+          element: <JeuDetail />,
+          errorElement: <Error/>,
+       },
+       
+
 
         {
 
@@ -41,8 +51,14 @@ function App() {
         },
 
         {
+          path: "/profile/:userId",
+          element: <Profile />,
+          errorElement: <Error />,
+        },
+        
+        {
 
-          path: "/Achievement",
+          path: "/Achievement/:userId",
           element: <Achievement/>,
           errorElement: <Error/>,
         },

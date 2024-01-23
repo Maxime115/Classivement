@@ -13,6 +13,7 @@ export default function Login() {
   const [feedback, setFeedback] = useState("");
   const [feedbackGood, setFeedbackGood] = useState("");
   const [user, setUser] = useState("");
+  const [loading, setLoading] = useState(false);
   
   const navigate = useNavigate();
 
@@ -48,7 +49,7 @@ export default function Login() {
   async function submit(values) {
     setFeedback("");
     console.log(values);
-
+  
     try {
       const response = await fetch("http://localhost:8000/login", {
         method: "POST",
@@ -56,6 +57,7 @@ export default function Login() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(values),
+        credentials: "include",
       });
       if (response.ok) {
         const user = await response.json();
@@ -67,7 +69,10 @@ export default function Login() {
           setFeedbackGood(user.messageGood);
           setUser(user.id);
           setTimeout(() => {
-            navigate("/Apropos");
+            // Navigate to the home page
+            navigate("/");
+            // Reload the current page
+            window.location.reload();
           }, 3000);
         }
       }

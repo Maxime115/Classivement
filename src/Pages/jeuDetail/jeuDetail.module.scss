@@ -1,0 +1,146 @@
+
+.sectionJeu {
+    width: 90%;
+    margin: auto;
+} 
+
+
+   .titrePage {
+    margin-top: 5vh;
+    
+ }
+
+ .infoJeu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: auto;
+    margin-top: 5vh;
+    gap: 100px;
+
+    .jaquette {
+
+    position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      filter: drop-shadow(0 0 0.5rem #000);
+    
+    }
+
+    ul {
+        list-style-type: none;
+        text-align: left;
+
+        li {
+            margin-top: 10px;
+            font-size: 24px;
+        }
+    }
+ }
+
+ 
+
+
+.achievementContainer {
+    display: block;
+    
+}
+    
+  
+  .achievement {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    border: solid #fff;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 25px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    margin-bottom: 50px;
+
+
+
+    .icone {
+        border-radius: 15px;
+        margin-bottom: 10px;
+        max-height: 75px;
+    }
+
+    .info {
+        display: block;
+        al
+
+        .titre {
+            margin-bottom: 10px;
+        }
+    }
+
+    .enSavoir {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .complete {
+        height: 45px;
+        width: 45px;
+        appearance: none;
+        border: 2px solid #fff;
+        border-radius: 15px;
+        display: inline-block;
+        position: relative;
+        transition: 0.2s;
+        cursor: pointer;
+        margin: auto;
+        
+        
+    
+        &:hover {
+            background-color: #a8a7ae;
+            border: 2px solid #a8a7ae;
+            animation: sparkle 0.5s ease-in-out;
+        }
+    
+    
+        &:focus {
+            outline: none; // Remove default focus outline
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); // Add a subtle box shadow on focus
+        }
+    
+        &:checked {
+            background-color: #6ec1e4; // Background color when checked
+            border: 2px solid #6ec1e4; // Border color when checked
+            -webkit-box-shadow:0px 0px 50px 10px rgba(110,193,228,1);
+            -moz-box-shadow: 0px 0px 50px 10px rgba(110,193,228,1);
+            box-shadow: 0px 0px 50px 10px rgba(110,193,228,1);
+        }
+    
+        &:before {
+            content: '\2605'; // Checkmark symbol
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -55%);
+            color: white; // Checkmark color
+            font-size: 40px; // Checkmark size
+            visibility: hidden;
+        }
+    
+        &:checked:before {
+            visibility: visible;
+        }
+
+        
+        
+
+    }
+
+  }
+

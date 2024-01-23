@@ -1,30 +1,43 @@
 import styles from "./boutonFilter.module.scss";
 
 
-function boutonFilter ({ onFilterChange, onSortChange }) {
-
+function boutonFilter({ onFilterChange, onSortChange }) {
   const sortTypes = [
-    {value: 'popularite', label: 'Popularité'},
-    {value: 'alphabetique', label: 'Alphabétique'},
-    {value: 'annee', label: 'Année'}
+    { value: 'score_popularite', label: 'Popularité' },
+    { value: 'annee_sortie', label: 'Année de sortie' },
+    { value: 'nom_jeu', label: 'Alphabétique' },
   ];
 
-    const plateforme = [{value: 'all', label: 'Toutes les plateformes'}, 
-    {value: 'NES', label: 'NES'},
-    {value: 'SNES', label: 'SNES'},
-    {value: 'GB', label: 'Gameboy'},
-    {value: 'N64', label: 'Nintendo 64'},
-    {value: 'PS1', label: 'Playstation'}, 
+    const plateformeOptions = [
+    { value: 'all', label: 'Toutes les plateformes' },
+    { value: 'Master System', label: 'Master System' },
+    { value: 'NES', label: 'NES' },
+    { value: 'Gameboy', label: 'Gameboy' },
+    { value: 'Gameboy Color', label: 'Gameboy Color' },
+    { value: 'Mega Drive', label: 'Mega Drive' },
+    { value: 'Super NES', label: 'Super NES' },
+    { value: 'Neogeo', label: 'Neogeo' },
+    { value: 'Saturn', label: 'Saturn' },
+    { value: 'Nintendo 64', label: 'Nintendo 64' },
+    { value: 'Playstation', label: 'Playstation' },
+    { value: 'PC', label: 'PC' }
   ];
 
-  const genre = [
+  const genreOptions = [
     { value: 'all', label: 'Tous les genres' },
-    { value: 'Action-RPG', label: 'Action-Aventure' },
+    { value: 'Jeux de combat', label: 'Jeux de combat' },
+    { value: "Beat'em all", label: "Beat'em all" },
+    { value: 'Jeux de plate-forme', label: 'Jeux de plate-forme' },
     { value: 'FPS', label: 'FPS' },
-    { value: 'Plateforme', label: 'Jeux de plateforme' },
+    { value: "Shoot'em up", label: "Shoot'em up" },
+    { value: 'Rail Shooters', label: 'Rail Shooters' },
+    { value: 'Action-RPG', label: 'Action-RPG' },
     { value: 'RPG', label: 'RPG' },
-    { value: 'FG', label: 'Jeux de combats' },
-    { value: 'Racing', label: 'Jeux de course' }
+    { value: 'Puzzle game', label: 'Puzzle game' },
+    { value: 'Simulation', label: 'Simulation' },
+    { value: 'Stratégie', label: 'Stratégie' },
+    { value: 'Jeux de sport', label: 'Jeux de sport' },
+    { value: 'Jeux de courses', label: 'Jeux de courses' },
   ];
 
   const handleSortChange = (e) => {
@@ -34,50 +47,45 @@ function boutonFilter ({ onFilterChange, onSortChange }) {
 
   const handleFilterChange = (e, filterType) => {
     const selectedValue = e.target.value;
-
-    // Determine which type of filter has been changed
-    if (filterType === 'plateforme') {
-      onFilterChange({ plateforme: selectedValue });
-    } else if (filterType === 'genre') {
-      onFilterChange({ genre: selectedValue });
-    }
+    onFilterChange({ [filterType]: selectedValue });
   };
 
 
   return (
+    <>
+      <div className={styles.filterContainer}>
+        <select
+          className={styles.filterSelect}
+          onChange={(e) => handleFilterChange(e, 'genre')}
+        >
+          {genreOptions.map(({ value, label }, index) => (
+            <option key={index} value={value}>
+              {label || value}
+            </option>
+          ))}
+        </select>
 
-      <>
-       <div className={styles.filterContainer}>
+        <select
+          className={styles.filterSelect}
+          onChange={(e) => handleFilterChange(e, 'plateforme')}
+        >
+          {plateformeOptions.map(({ value, label }, index) => (
+            <option key={index} value={value}>
+              {label || value}
+            </option>
+          ))}
+        </select>
 
-      <select className={styles.filterSelect} 
-      onChange={(e) => handleFilterChange(e, 'genre')}>
-        {genre.map(({ value, label }, index) => (
-          <option key={index} value={value}>
-            {label || value}
-          </option>
-        ))}
-      </select>
-
-      <select className={styles.filterSelect} 
-      onChange={(e) => handleFilterChange(e, 'plateforme')}>
-        {plateforme.map(({ value, label }, index) => (
-          <option key={index} value={value}>
-            {label || value}
-          </option>
-        ))}
-      </select>
-
-      <select className={styles.filterSelect} 
-      onChange={handleSortChange}>
-        {sortTypes.map(({value, label}, index) => (
-          <option key={index} value={value}>
-            {label}
-          </option>
-        ))}
-      </select>
-
+        <select className={styles.filterSelect} onChange={handleSortChange}>
+          {sortTypes.map(({ value, label }, index) => (
+            <option key={index} value={value}>
+              {label}
+            </option>
+          ))}
+        </select>
       </div>
     </>
   );
 }
-export default boutonFilter
+
+export default boutonFilter;

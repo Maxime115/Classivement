@@ -9,6 +9,7 @@ export async function signin(credentials) {
         body: JSON.stringify(credentials),
       });
       const body = await response.json();
+      
       if (response.ok) {
         const user = await response.json();
         console.log(user);
@@ -71,6 +72,29 @@ export async function signin(credentials) {
     }
   }
 
+  export async function updateProfile(formData, userId) {
+    try {
+      const response = await fetch(`http://localhost:8000/updateProfile/${userId}`, {
+        method: "PUT",
+        body: formData,
+      });
+  
+      const body = await response.json();
+  
+      if (response.ok) {
+        return body;
+      } else {
+        if (body) {
+          throw body;
+        } else {
+          throw new Error("Error updating profile");
+        }
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
   export async function getConnectedUser() {
     const response = await fetch("http://localhost:8000/getConnectedUser");
     const userC = await response.json();

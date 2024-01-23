@@ -1,11 +1,11 @@
 .sectionListeJeux {
-    width: 70%;
+  width: 80%;
     margin: auto;
 } 
 
 .ListeJeux {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 30%);
     grid-gap: 2rem;
     padding: 2rem;
     justify-content: center;
@@ -79,6 +79,18 @@
           opacity: 1;
         }
       }
+
+      .additionalInfo {
+        display: flex;
+        justify-content: space-around;
+        
+        gap: 100px;
+      
+        h5 {
+          font-size: 16px;
+          margin: 0;
+        }
+      }
     }
   }
 
@@ -109,6 +121,8 @@
     background-color: #a8a7ae;
   }
 }
+
+
 
 
  
