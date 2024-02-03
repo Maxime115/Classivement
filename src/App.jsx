@@ -8,6 +8,7 @@ import Login from './Pages/Forms/Login'
 import Contact from './Pages/Forms/Contact'
 import Error from './Pages/ErrorPage/ErrorPage'
 import Achievement from './Pages/CreationAchievement/CreationAchievement'
+import AchievementDetail from "./Pages/AchievementDetail/AchievementDetail";
 import JeuDetail from "./Pages/jeuDetail/jeuDetail";
 import Profile from './Pages/Profile/Profile'
 
@@ -61,6 +62,15 @@ function App() {
           path: "/Achievement/:userId",
           element: <Achievement/>,
           errorElement: <Error/>,
+        },
+
+        
+        {
+
+        path: "/AchievementDetail/:achievementId",
+        element: <AchievementDetail/>,
+        errorElement: <Error/>,
+
         },
 
 

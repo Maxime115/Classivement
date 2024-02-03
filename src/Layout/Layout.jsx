@@ -5,6 +5,7 @@ import Home from "../Pages/home/home.jsx";
 import Navbar from "../Pages/navbar/navbar.jsx";
 import Footer from "../Pages/Footer/Footer.jsx";
 import { createContext, useState, useEffect } from "react";
+import { set } from "lodash";
 
 export const UserContext = createContext();
 
@@ -12,6 +13,8 @@ const Layout = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [id, setid] = useState(""); 
+  const [admin, setAdmin] = useState("");
+  const [ban, setBan] = useState("");
 
   useEffect(() => {
     const checkUser = async () => {
@@ -26,10 +29,16 @@ const Layout = () => {
           setIsLoggedIn(true);
           setUsername(data.username);
           setid(data.id_Users);
+          setAdmin(data.admin);
+          setBan(data.ban);
+          console.log(data.admin);
+
         } else {
           setIsLoggedIn(false);
           setUsername("");
-          setid(""); // Make sure to reset id_Users when the user is not logged in
+          setid(""); 
+          setAdmin("");
+          setBan("");
         }
       } catch (error) {
         console.error("Error checking user:", error);
@@ -57,7 +66,7 @@ const Layout = () => {
 
   const { pathname } = useLocation();
 
-  const user = { isLoggedIn, setIsLoggedIn, username, setUsername, id, setid };
+  const user = { isLoggedIn, setIsLoggedIn, username, setUsername, id, setid, admin, setAdmin, ban, setBan };
 
   console.log(username);
   console.log(id);

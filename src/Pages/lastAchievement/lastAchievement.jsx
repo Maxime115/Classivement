@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from "./lastAchievement.module.scss"
 
 
@@ -58,7 +59,7 @@ function LastAchievement() {
                 <br></br>
                 <p>{achievements.description}</p>
               </div>
-              <button className={styles.enSavoir}>En savoir +</button>
+              <Link to={`/achievementDetail/${achievements.id_Achievement}`}><button className={styles.enSavoir}>En savoir +</button></Link>
             </div>
           ))}
         </div>

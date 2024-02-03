@@ -130,7 +130,7 @@ const Profile = () => {
                 <br />
                 <p>{achievement.description}</p>
               </div>
-              <button className={styles.enSavoir}>En savoir +</button>
+              <Link to={`/achievementDetail/${achievement.id_Achievement}`}><button className={styles.enSavoir}>En savoir +</button></Link>
             </div>
           ))
       ) : (

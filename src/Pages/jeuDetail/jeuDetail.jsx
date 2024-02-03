@@ -74,19 +74,19 @@ const JeuDetail = () => {
       <div className={styles.achievementsSection}>
         {achievements.length > 0 ? (
           achievements.map((achievement) => (
-            <Link key={achievement.id_Achievement} to={`/achievement/${achievement.id_Achievement}`}>
-              <div className={styles.achievement}>
+            <div className={styles.achievement} key={achievement.id_Achievement} to={`/achievement/${achievement.id_Achievement}`}>
                 <div>
                   <img className={styles.icone} src={`http://localhost:8000/${achievement.icon}`} alt={achievement.title} />
+                  <h4>Créé par {achievement.username}</h4>
                 </div>
                 <div className={styles.info}>
-                  <h3 className={styles.titre}>{achievement.title}</h3>
+                <Link to={`/achievementDetail/${achievement.id_Achievement}`}><h3 className={styles.titre}>{achievement.title}</h3></Link>
                   <br></br>
                   <p>{achievement.description}</p>
                 </div>
                 {isLoggedIn && <input type="checkbox" className={styles.complete} />}
               </div>
-            </Link>
+            
           ))
         ) : (
           <p>Aucun Achievements</p>

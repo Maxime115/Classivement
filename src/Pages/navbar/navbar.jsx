@@ -10,11 +10,20 @@ import { UserContext } from "../../Layout/Layout.jsx";
 
 function Navbar() {
   
-  const { isLoggedIn, setIsLoggedIn, username, id } = useContext(UserContext);
+  const { isLoggedIn, setIsLoggedIn, username, id, admin } = useContext(UserContext);
+
 
   console.log(username);
   console.log(id);
   console.log(isLoggedIn);
+  console.log(admin);
+
+  const isAdmin = admin === "1";
+
+  console.log(isAdmin);
+
+
+  
 
 
   
@@ -22,11 +31,11 @@ function Navbar() {
   const handleLogout = () => {
     fetch ("http://localhost:8000/logout", {
       method: 'POST',
-      credentials: 'include', // Include cookies
+      credentials: 'include', 
     })
     .then((response) => {
       if (response.ok) {
-        setIsLoggedIn(false); // If logout was successful, update the login status in your React app
+        setIsLoggedIn(false); 
       } else {
         console.error('Logout failed');
       }
@@ -51,6 +60,9 @@ function Navbar() {
             <Link to={`/Achievement/${id}`}>Créer un achievement</Link>
 
             <Link to={`/profile/${id}`}>Profil</Link>
+            {isLoggedIn && isAdmin && (
+        <Link to="/adminDashboard">Dashboard Admin</Link>
+      )}
           </>
         )}
       </nav>
